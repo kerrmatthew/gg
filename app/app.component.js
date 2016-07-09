@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var trackComponent_1 = require('./components/trackComponent');
 var soundService_1 = require('./services/soundService');
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
@@ -18,7 +19,8 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'soundmixer',
             templateUrl: 'app/templates/soundmixer.html',
-            providers: [soundService_1.SoundService]
+            providers: [soundService_1.SoundService],
+            directives: [trackComponent_1.TrackComponent]
         }), 
         __metadata('design:paramtypes', [soundService_1.SoundService])
     ], AppComponent);

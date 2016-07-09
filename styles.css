@@ -7,7 +7,36 @@ body {
   margin: 2em;
 }
 
- /*
+    /*
   * See https://github.com/angular/angular.io/blob/master/public/docs/_examples/styles.css
   * for the full set of master styles used by the documentation samples
   */
+
+
+
+.track-container {
+    width: 10%; 
+    height: 100%; 
+    padding: 10px;
+    margin: 5px;
+    position: relative;
+    float: left;
+    background: #ddd;
+}
+
+.track {
+    background: red;
+    width: 100%;
+}
+
+.track-container::hover {
+    background: #aaa;
+}
+
+.track.is-playing {
+    background: green;
+}
+
+.track.is-preview {
+    background: yellow;
+}

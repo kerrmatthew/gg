@@ -13,8 +13,16 @@ var sounder_1 = require('./../sounder');
 var SoundService = (function () {
     function SoundService() {
         this.sounds = [];
-        for (var index = 0; index < 5; index++) {
-            var sounder = new sounder_1.Sounder('test' + index);
+        this.soundUrls = [
+            "app/sounds/Gg Web Atmos Loop 1.mp3",
+            "app/sounds/Gg Web Atmos Loop 2.mp3",
+            "app/sounds/Gg Web Sting 1.mp3",
+            "app/sounds/Gg Web Sting 2.mp3",
+            "app/sounds/Gg Web Sting 3.mp3",
+            "app/sounds/Gg Web Sting 4.mp3"
+        ];
+        for (var index = 0; index < this.soundUrls.length; index++) {
+            var sounder = new sounder_1.Sounder(this.soundUrls[index]);
             this.sounds.push(sounder);
         }
     }

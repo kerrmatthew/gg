@@ -1,0 +1,16 @@
+<div 
+    class="track-container"
+    (mousemove)="adjustMagnitde($event)"
+    (mouseenter)="overridePlayback(true)"
+    (mouseleave)="overridePlayback(false)"
+    (click)="togglePlay()"
+
+>
+    <div 
+        class="track" 
+        [style.height.%]="volume * 100"
+        [class.is-playing]="isPlaying()"
+        [class.is-preview]="isOverride()"
+        >
+    </div>
+</div>

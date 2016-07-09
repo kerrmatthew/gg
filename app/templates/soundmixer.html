@@ -1,5 +1,3 @@
-<div *ngFor="let sound of sounds">
-
-    <track sounder="{{ sound }}"></track>
-
+<div *ngFor="let track of sounds">
+    <track [sounder]="track" />
 </div>

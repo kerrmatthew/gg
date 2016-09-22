@@ -15,7 +15,7 @@ var TrackComponent = (function () {
         this.elementHeight = 0;
     }
     TrackComponent.prototype.ngOnInit = function () {
-        // this.sounder.play();
+        this.sounder.stop();
     };
     Object.defineProperty(TrackComponent.prototype, "volume", {
         get: function () {
@@ -25,11 +25,11 @@ var TrackComponent = (function () {
         configurable: true
     });
     TrackComponent.prototype.adjustMagnitde = function (e) {
-        if (!!!this.isPlaying()) {
+        if (!!!this.sounder.isPlaying()) {
             return false;
         }
         ;
-        if (this.elementHeight == 0) {
+        if (this.elementHeight === 0) {
             this.elementHeight = e.srcElement.scrollHeight;
         }
         this.sounder.setVolume(e.offsetY / this.elementHeight);
@@ -37,14 +37,11 @@ var TrackComponent = (function () {
     TrackComponent.prototype.togglePlay = function () {
         return this.sounder.togglePlay();
     };
-    TrackComponent.prototype.isPlaying = function () {
-        return this.sounder.playing;
-    };
     TrackComponent.prototype.isOverride = function () {
         return this.sounder.playbackOverridden;
     };
     TrackComponent.prototype.overridePlayback = function (shouldOverridePlayback) {
-        if (!!!this.isPlaying()) {
+        if (!!!this.sounder.isPlaying()) {
             this.sounder.overridePlayback(shouldOverridePlayback);
         }
     };

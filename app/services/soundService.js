@@ -19,7 +19,8 @@ var SoundService = (function () {
             "app/sounds/Gg Web Sting 1.mp3",
             "app/sounds/Gg Web Sting 2.mp3",
             "app/sounds/Gg Web Sting 3.mp3",
-            "app/sounds/Gg Web Sting 4.mp3"
+            "app/sounds/Gg Web Sting 4.mp3",
+            "app/sounds/Gg Ohw.mp3"
         ];
         for (var index = 0; index < this.soundUrls.length; index++) {
             var sounder = new sounder_1.Sounder(this.soundUrls[index]);

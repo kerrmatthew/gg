@@ -10,14 +10,15 @@ import { Sounder } from './../sounder';
 export class SoundService {
 
     private sounds: Sounder[] = [];
-
+   
     private soundUrls = [
         "app/sounds/Gg Web Atmos Loop 1.mp3",
         "app/sounds/Gg Web Atmos Loop 2.mp3",
         "app/sounds/Gg Web Sting 1.mp3",
         "app/sounds/Gg Web Sting 2.mp3", 
         "app/sounds/Gg Web Sting 3.mp3", 
-        "app/sounds/Gg Web Sting 4.mp3"
+        "app/sounds/Gg Web Sting 4.mp3",
+        "app/sounds/Gg Ohw.mp3"
     ];
 
     constructor() {

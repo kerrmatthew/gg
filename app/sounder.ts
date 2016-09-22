@@ -3,9 +3,9 @@ declare var Howl: any;
 export class Sounder {
     private url: string;
     private howler: any;
-    public playbackOverridden: boolean;
+    private playing: boolean = false;
 
-    public playing: boolean = false;
+    public playbackOverridden: boolean;
     public volume = 1.0;
 
 
@@ -17,7 +17,7 @@ export class Sounder {
 
         this.howler = new Howl({
             urls: [ this.url ],
-            autoplay: false, 
+            autoplay: true, 
             loop: true, 
             volume: this.volume
         })
@@ -29,11 +29,16 @@ export class Sounder {
             this.playing = true; 
         } else {
             this.playing = true;
-            this.howler.fadeIn(this.volume, 500);
+            this.howler.unmute();
         }
     }
+
+    public isPlaying () {
+        return this.playing
+    }
+
     public stop () {
-        this.howler.fadeOut(0, 500);
+        this.howler.mute();
         this.playing = false;
     }
 
@@ -54,7 +59,7 @@ export class Sounder {
     public overridePlayback (shouldOverridePlayback) {
         if(shouldOverridePlayback) {
             this.playbackOverridden = true
-            this.howler.fadeIn(this.volume, 500);
+            this.howler.unmute();
         } else {
             this.playbackOverridden = false
             if(this.playing === false) { this.stop() } 

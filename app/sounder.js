@@ -6,7 +6,7 @@ var Sounder = (function () {
         this.url = soundUrl;
         this.howler = new Howl({
             urls: [this.url],
-            autoplay: false,
+            autoplay: true,
             loop: true,
             volume: this.volume
         });
@@ -18,11 +18,14 @@ var Sounder = (function () {
         }
         else {
             this.playing = true;
-            this.howler.fadeIn(this.volume, 500);
+            this.howler.unmute();
         }
     };
+    Sounder.prototype.isPlaying = function () {
+        return this.playing;
+    };
     Sounder.prototype.stop = function () {
-        this.howler.fadeOut(0, 500);
+        this.howler.mute();
         this.playing = false;
     };
     Sounder.prototype.setVolume = function (volume) {
@@ -41,7 +44,7 @@ var Sounder = (function () {
     Sounder.prototype.overridePlayback = function (shouldOverridePlayback) {
         if (shouldOverridePlayback) {
             this.playbackOverridden = true;
-            this.howler.fadeIn(this.volume, 500);
+            this.howler.unmute();
         }
         else {
             this.playbackOverridden = false;

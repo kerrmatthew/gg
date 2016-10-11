@@ -9,6 +9,9 @@
     <div 
         class="track" 
         [style.height.%]="volume * 100"
+        [style.width.%]="volume * 100"
+        [style.top.%]="50 - (volume * 100 / 2)"
+        [style.left.%]="50 - (volume * 100 / 2)"
         [class.is-playing]="sounder.isPlaying()"
         [class.is-preview]="isOverride()"
         >

@@ -31,7 +31,6 @@ var TrackComponent = (function () {
         ;
         if (this.elementHeight === 0) {
             this.elementHeight = e.srcElement.scrollHeight;
-            this.elementHeight = e.srcElement.scrollHeight;
         }
         this.sounder.setVolume(e.offsetY / this.elementHeight);
     };

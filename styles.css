@@ -1,16 +1,21 @@
 .track-container {
-    width: 10%; 
-    height: 100%; 
+    width: 100px; 
+    height: 100px; 
     padding: 10px;
     margin: 5px;
     position: relative;
     float: left;
     background: #ddd;
+
+    border-radius: 100px;
+
 }
 
 .track {
     background: red;
     width: 100%;
+    border-radius: 100px;
+
 }
 
 .track-container::hover {

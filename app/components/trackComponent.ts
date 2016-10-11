@@ -20,19 +20,21 @@ export class TrackComponent {
     constructor() {
     }
 
-    ngOnInit() {
+    ngOnInit () {
         this.sounder.stop();
     }
 
-    public get volume() {
+    public get volume () {
         return this.sounder.volume;
     }
     
     public adjustMagnitde (e:MouseEvent) {
         if(!!! this.sounder.isPlaying()) { return false } ;
-            if(this.elementHeight === 0) {
-                this.elementHeight = e.srcElement.scrollHeight
-            }
+       
+        if(this.elementHeight === 0) {
+            this.elementHeight = e.srcElement.scrollHeight
+            this.elementHeight = e.srcElement.scrollHeight
+        }
 
         this.sounder.setVolume(
             e.offsetY / this.elementHeight         
@@ -48,7 +50,7 @@ export class TrackComponent {
         return this.sounder.playbackOverridden
     }
 
-    public overridePlayback(shouldOverridePlayback) {
+    public overridePlayback (shouldOverridePlayback) {
         if(!!! this.sounder.isPlaying() ) {
             this.sounder.overridePlayback(shouldOverridePlayback);   
         }

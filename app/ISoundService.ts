@@ -1,5 +1,6 @@
-import {Sounder} from './sounder';
+import { Sounder } from './sounder';
 
-export interface ISoundService {
-    sounders(): Sounder[];
+interface ISoundService {
+    sounders: Sounder[];
 }
+export default ISoundService;

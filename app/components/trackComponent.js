@@ -49,6 +49,10 @@ var TrackComponent = (function () {
         core_1.Input(), 
         __metadata('design:type', sounder_1.Sounder)
     ], TrackComponent.prototype, "sounder", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], TrackComponent.prototype, "dataindex", void 0);
     TrackComponent = __decorate([
         core_1.Component({
             selector: 'track',

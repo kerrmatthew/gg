@@ -13,6 +13,7 @@ export class TrackComponent {
     
 
     @Input() sounder: Sounder;
+    @Input() dataindex: Number;
     
     private elementHeight = 0;
 

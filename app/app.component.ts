@@ -1,5 +1,5 @@
 import {TrackComponent} from './components/trackComponent';
-import {ISoundService} from './ISoundService';
+import ISoundService from './ISoundService';
 import { SoundService } from './services/soundService';
 import {Sounder} from './sounder';
 

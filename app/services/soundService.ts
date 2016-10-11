@@ -1,4 +1,4 @@
-import {ISoundService} from './../ISoundService';
+import  ISoundService from './../ISoundService';
 import { Injectable } from '@angular/core';
 import { Sounder } from './../sounder';
 
@@ -7,7 +7,7 @@ import { Sounder } from './../sounder';
 
 
 @Injectable() 
-export class SoundService {
+export class SoundService implements ISoundService {
 
     private sounds: Sounder[] = [];
    
@@ -21,7 +21,7 @@ export class SoundService {
         "app/sounds/Gg Ohw.mp3"
     ];
 
-    constructor() {
+    constructor () {
         for (var index = 0; index < this.soundUrls.length; index++) {
             var sounder = new Sounder(this.soundUrls[index]);
             this.sounds.push(sounder);            

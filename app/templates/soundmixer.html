@@ -1,3 +1,2 @@
-<div *ngFor="let track of sounds">
-    <track [sounder]="track" />
-</div>
+
+    <track [sounder]="sound" [dataindex]="i" *ngFor="let sound of sounds let i = index" />

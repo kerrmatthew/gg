@@ -11,7 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var sounder_1 = require('./../sounder');
 var TrackComponent = (function () {
-    function TrackComponent() {
+    function TrackComponent(_ngZone) {
+        this._ngZone = _ngZone;
         this.elementHeight = 0;
     }
     TrackComponent.prototype.ngOnInit = function () {
@@ -25,14 +26,26 @@ var TrackComponent = (function () {
         configurable: true
     });
     TrackComponent.prototype.adjustMagnitde = function (e) {
-        if (!!!this.sounder.isPlaying()) {
+        var _this = this;
+        // if(!!! this.sounder.isPlaying()) { return false } ;
+        if (e && e.type === "mousedown") {
+            this.mouseIsDown = true;
+        }
+        if (e && e.type != "mousedown") {
+            this.mouseIsDown = false;
             return false;
         }
-        ;
-        if (this.elementHeight === 0) {
-            this.elementHeight = e.srcElement.scrollHeight;
+        this.sounder.setVolume(this.sounder.volume + 0.01);
+        if (this.sounder.volume < 1 && this.mouseIsDown === true) {
+            core.delay(30).then(function () {
+                return _this._ngZone.run(function () { _this.adjustMagnitde(null); });
+            });
         }
-        this.sounder.setVolume(e.offsetY / this.elementHeight);
+        ;
+        return false;
+    };
+    TrackComponent.prototype.resetVolume = function () {
+        this.sounder.setVolume(0);
     };
     TrackComponent.prototype.togglePlay = function () {
         return this.sounder.togglePlay();
@@ -58,7 +71,7 @@ var TrackComponent = (function () {
             selector: 'track',
             templateUrl: 'app/templates/track.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.NgZone])
     ], TrackComponent);
     return TrackComponent;
 }());

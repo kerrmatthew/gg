@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, NgZone} from '@angular/core';
 import {Sounder} from './../sounder';
 
+declare var core: any;
 
 
 @Component({
@@ -16,9 +17,9 @@ export class TrackComponent {
     @Input() dataindex: Number;
     
     private elementHeight = 0;
-
-    constructor() {
-    }
+    private mouseIsDown: boolean; 
+    
+    constructor(private _ngZone: NgZone) {}
 
     ngOnInit () {
         this.sounder.stop();
@@ -28,17 +29,32 @@ export class TrackComponent {
         return this.sounder.volume;
     }
     
-    public adjustMagnitde (e:MouseEvent) {
-        if(!!! this.sounder.isPlaying()) { return false } ;
-       
-        if(this.elementHeight === 0) {
-            this.elementHeight = e.srcElement.scrollHeight
+    public adjustMagnitde (e:MouseEvent | null) {
+        // if(!!! this.sounder.isPlaying()) { return false } ;
+        if (e && e.type === "mousedown") {
+            this.mouseIsDown = true
         }
+        if ( e && e.type != "mousedown" ){
+            this.mouseIsDown = false;
+            return false
+        }
+        this.sounder.setVolume( this.sounder.volume + 0.01 );
 
-        this.sounder.setVolume(
-            e.offsetY / this.elementHeight         
-        );
-        
+        if (this.sounder.volume < 1 && this.mouseIsDown === true) {
+            core.delay(30).then(() => 
+                this._ngZone.run(() => 
+                    { this.adjustMagnitde( null ) }
+                )
+            )
+        };
+     
+
+        return false;
+
+    }
+
+    public resetVolume () {
+        this.sounder.setVolume(0);
     }
 
     public togglePlay () {

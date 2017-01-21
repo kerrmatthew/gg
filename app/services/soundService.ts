@@ -12,13 +12,22 @@ export class SoundService implements ISoundService {
     private sounds: Sounder[] = [];
    
     private soundUrls = [
-        "app/sounds/Gg Web Atmos Loop 1.mp3",
-        "app/sounds/Gg Web Atmos Loop 2.mp3",
-        "app/sounds/Gg Web Sting 1.mp3",
-        "app/sounds/Gg Web Sting 2.mp3", 
-        "app/sounds/Gg Web Sting 3.mp3", 
-        "app/sounds/Gg Web Sting 4.mp3",
-        "app/sounds/Gg Ohw.mp3"
+        "app/sounds/DRUM_LOOP.mp3",
+        "app/sounds/GPAD_LOOP.mp3",
+        "app/sounds/HBVX_LOOP.mp3",
+        "app/sounds/GTXT_LOOP.mp3",
+        "app/sounds/PERC_LOOP.mp3",
+        "app/sounds/STRG_LOOP.mp3",
+        "app/sounds/TEMP_LOOP_1.mp3",
+        "app/sounds/TEMP_LOOP_2.mp3"
+
+        // "app/sounds/Gg Web Atmos Loop 1.mp3",
+        // "app/sounds/Gg Web Atmos Loop 2.mp3",
+        // "app/sounds/Gg Web Sting 1.mp3",
+        // "app/sounds/Gg Web Sting 2.mp3", 
+        // "app/sounds/Gg Web Sting 3.mp3", 
+        // "app/sounds/Gg Web Sting 4.mp3",
+        // "app/sounds/Gg Ohw.mp3"
     ];
 
     constructor () {

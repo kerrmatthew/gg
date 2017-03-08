@@ -11,7 +11,7 @@
 }
 
 .track {
-    background: url("/app/images/S&Y28.jpg");
+    background: url("app/images/S&Y28.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size:800px;
@@ -34,7 +34,7 @@
 }
 
 body {
-    background: url("/app/images/Gg Hh Sketch.jpg");
+    background: url("app/images/Gg Hh Sketch.jpg");
     background-size: contain;
 }
 

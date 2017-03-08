@@ -38,7 +38,7 @@ export class TrackComponent {
             this.mouseIsDown = false;
             return false
         }
-        this.sounder.setVolume( this.sounder.volume + 0.01 );
+        this.sounder.setVolume( this.sounder.volume - 0.01 );
 
         if (this.sounder.volume < 1 && this.mouseIsDown === true) {
             core.delay(30).then(() => 
@@ -54,7 +54,7 @@ export class TrackComponent {
     }
 
     public resetVolume () {
-        this.sounder.setVolume(0);
+        this.sounder.setVolume(1.0);
     }
 
     public togglePlay () {

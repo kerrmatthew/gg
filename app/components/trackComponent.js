@@ -35,7 +35,7 @@ var TrackComponent = (function () {
             this.mouseIsDown = false;
             return false;
         }
-        this.sounder.setVolume(this.sounder.volume + 0.01);
+        this.sounder.setVolume(this.sounder.volume - 0.01);
         if (this.sounder.volume < 1 && this.mouseIsDown === true) {
             core.delay(30).then(function () {
                 return _this._ngZone.run(function () { _this.adjustMagnitde(null); });
@@ -45,7 +45,7 @@ var TrackComponent = (function () {
         return false;
     };
     TrackComponent.prototype.resetVolume = function () {
-        this.sounder.setVolume(0);
+        this.sounder.setVolume(1.0);
     };
     TrackComponent.prototype.togglePlay = function () {
         return this.sounder.togglePlay();

@@ -1,9 +1,9 @@
 <div 
     id="track-{{ dataindex }}"
     class="track-container"
-    (mousedown)="resetVolume(); adjustMagnitde($event)"
+    (mousedown)="resetVolume(); adjustMagnitde($event); togglePlay()"
     (mouseenter)="overridePlayback(true)"
-    (mouseleave)="overridePlayback(false); togglePlay()"
+    (mouseleave)="overridePlayback(false)"
     (mouseup)="adjustMagnitde($event)"
     (mouseout)="adjustMagnitde($event)"
     >
